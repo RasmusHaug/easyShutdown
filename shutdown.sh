@@ -1,8 +1,8 @@
 #!/bin/bash
 WHAT=$'Welcome to shutdown\n\n'
-OPTIONS=$'1. shutdown now\n2. restart now\n3. shutdown later\n4. restart later\n'
+OPTIONS=$'1. shutdown now\n2. restart now\n3. shutdown later\n'
 SMH=$'\n1. Insert Time in Seconds\n2. Insert Time in Minutes\n3. Insert Time in Hours\n'
-WHEN=$'Insert Time:\n[number]  '
+WHEN=$'\nInsert Time:\n'
 echo "$WHAT"
 echo "$OPTIONS"
 
@@ -17,38 +17,24 @@ then
 elif [[ $option -eq 3 ]];
 then 
 	echo "$SMH"
-	read option
-	if [[ $option -eq 1 ]];
+	read scmnhr
+	echo "$WHEN"
+	read whoop
+	if [[ $scmnhr -eq 1 ]];
 	then 
-		echo "1"
-	elif [[ $option -eq 2 ]]; 
+		$RED echo "you selected to shut down your computer in $whoop-s"
+		shutdown -s -t $whoop 
+	elif [[ $scmnhr -eq 2 ]]; 
 	then 
-		echo "2"
-	elif [[ $option -eq 3 ]]; 
+		$RED echo "you selected to shut down your computer in $whoop-m"
+		shutdown -s -t $(($whoop*60))
+	elif [[ $scmnhr -eq 3 ]]; 
 	then 
-		echo "3"
+		$RED echo "you selected to shut down your computer in $whoop-h"
+		shutdown -s -t $(($whoop*60*60))
 	else 
 		echo "insert correct number!"
 	fi
-
-elif [[ $option -eq 4 ]]; 
-then
-	echo "$SMH"
-        read option
-        if [[ $option -eq 1 ]];
-        then
-                echo "$WHEN "
-		read time
-		shutdown -r -t
-        elif [[ $option -eq 2 ]];
-        then
-                echo "2"
-        elif [[ $option -eq 3 ]];
-        then
-                echo "3"
-        else
-                echo "insert correct number!"
-        fi
 else
 	echo "incorrect option!"
 fi

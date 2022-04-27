@@ -1,5 +1,5 @@
 #!/bin/bash
-WHAT=$'Welcome to shutdown\n\n'
+WHAT=$'\n\n		< Welcome to easyShutdown >\n\n'
 OPTIONS=$'1. shutdown now\n2. restart now\n3. shutdown later\n'
 SMH=$'\n1. Insert Time in Seconds\n2. Insert Time in Minutes\n3. Insert Time in Hours\n'
 WHEN=$'\nInsert Time:\n'

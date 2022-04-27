@@ -10,10 +10,10 @@ read option
 
 if [[ $option -eq 1 ]]; 
 then
-	shutdown -s -t 0
+	shutdown -s -t 1
 elif [[ $option -eq 2 ]];
 then
-	shutdown -r -t 0
+	shutdown -r -t 1
 elif [[ $option -eq 3 ]];
 then 
 	echo "$SMH"
